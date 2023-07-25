@@ -15,13 +15,13 @@ class Tree
     attr_accessor :array, :root_node
 
     def initialize(array) 
-        @array = array.sort.uniq
+        @array = array.sort!.uniq!
         @root_node = build_tree(array)
+        print_tree(@root_node)
     end
 
 
     def build_tree(array)
-        prepare_array(array)
 
         start = 0
         last = array.length - 1
@@ -37,9 +37,16 @@ class Tree
         return root_node
     end
 
+    def print_tree(node)
+        return if node.nil?
+
+        puts node.value
+        print_tree(node.left_child)
+        print_tree(node.right_child)
+             
+    end
+
 
 end
 
 tree = Tree.new([1,3,5,4,6,7])
-
-
