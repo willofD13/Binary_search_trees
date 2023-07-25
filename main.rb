@@ -10,6 +10,13 @@
 #return middle
 
 #[1,2,3,4,6,8,9]
+class Node 
+
+    def initialize(value)
+        @value = value 
+    end 
+
+end
 
 
 def build_tree(array)
