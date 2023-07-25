@@ -26,6 +26,8 @@ class Tree
 
 
     def build_tree(array)
+        prepare_array(array)
+
         start = 0
         last = array.length - 1
 
@@ -39,6 +41,10 @@ class Tree
         right_child = build_tree(array.slice((middle + 1)..last))
 
         return root_node
+    end
+
+    def prepare_array(array)
+        array.sort!.uniq!
     end
 
 end
