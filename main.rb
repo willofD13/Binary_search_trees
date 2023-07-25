@@ -1,19 +1,9 @@
-#sort the given array 
-#find the middle element and make it the root node 
-#separate in two subarrays 
-#repeat
-
-# array.sort
-# root = Node.new(a[array.count/2]) -> middle element
-# left_child = build_tree(array.slice(0..araay.length/2))
-# right_child = build_tree(array.slice(array.length/2..array.length))
-#return middle
-
-#[1,2,3,4,6,8,9]
 class Node 
 
     def initialize(value)
-        @value = value 
+        @value = value
+        @left = nil 
+        @right = nil
     end 
 
 end
@@ -22,6 +12,7 @@ class Tree
 
     def initialize(array) 
         @array = array
+        @root = build_tree(array)
     end
 
 
@@ -48,5 +39,7 @@ class Tree
     end
 
 end
+
+tree = Tree.new([1,3,5,4,6,7])
 
 
