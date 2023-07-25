@@ -15,7 +15,7 @@ class Tree
     attr_accessor :array, :root_node
 
     def initialize(array) 
-        @array = array
+        @array = array.sort.uniq
         @root_node = build_tree(array)
     end
 
@@ -36,11 +36,6 @@ class Tree
 
         return root_node
     end
-
-    def prepare_array(array)
-        array.sort!.uniq!
-    end
-
 
 
 end
