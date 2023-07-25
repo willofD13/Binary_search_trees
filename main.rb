@@ -18,21 +18,29 @@ class Node
 
 end
 
+class Tree  
 
-def build_tree(array)
-    start = 0
-    last = array.length - 1
+    def initialize(array) 
+        @array = array
+    end
 
-    return nil if start > last
 
-    middle = (start + last)/2 #find the middle element
+    def build_tree(array)
+        start = 0
+        last = array.length - 1
 
-    root_node = Node.new(array[middle])
+        return nil if start > last
 
-    left_child = build_tree(array.slice(0..middle - 1))
-    right_child = build_tree(array.slice((middle + 1)..last))
+        middle = (start + last)/2 #find the middle element
 
-    return root_node
+        root_node = Node.new(array[middle])
+
+        left_child = build_tree(array.slice(0..middle - 1))
+        right_child = build_tree(array.slice((middle + 1)..last))
+
+        return root_node
+    end
+
 end
 
 
