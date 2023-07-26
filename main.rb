@@ -1,11 +1,7 @@
-#compare leaf with root
-#if bigger compare with right child
-# if no right child -> leaf = right child
-# else compare leaf with right child
-#if smaller compare with left child
-# if no left child -> leaf = left child
-# recursion
-# if children.nil child = leaf
+# compare value with node value 
+# if node has no children(leaf node) remove the node 
+# if node has one child, copy the child in the node 
+# 
 
 
 class Node 
@@ -73,11 +69,32 @@ class Tree
         end
     end
 
-    def delete
+    def delete(value, node = root_node)
+        if node.nil? #base case
+            puts 'value not found'
+        elsif value == node.value
+            if node.left_child.nil? && node.right_child.nil? 
+                
+            elsif node.left_child.nil? 
+                node = node.right_child
+                return node
+            elsif node.right_child.nil? 
+                node = node.left_child
+                return node
+            else 
 
+            end
+        elsif value > node.value
+            node.right_child = delete(value, node.right_child)
+        elsif value < node.value
+            node.left_child = delete(value, node.left_child)
+        end
+        return root_node
+    end
 
 end
 
 tree = Tree.new([1,3,5,4,6,7])
 tree.insert(2)
+tree.delete(1)
 tree.print_tree
