@@ -83,7 +83,8 @@ class Tree
                 node = node.left_child
                 return node
             else 
-
+                inorder_successor = find_successor(node.right_child)
+                
             end
         elsif value > node.value
             node.right_child = delete(value, node.right_child)
@@ -93,9 +94,13 @@ class Tree
         return node
     end
 
+    def find_successor(node)
+        return node if node.left_child.nil? && node.right_child.nil?
+        find_successor(node.left_child)
+    end
+
 end
 
 tree = Tree.new([1,3,5,4,6,7])
-tree.insert(2)
-tree.delete(3)
+tree.delete(4)
 tree.print_tree
