@@ -84,7 +84,9 @@ class Tree
                 return node
             else 
                 inorder_successor = find_successor(node.right_child) # both children present
-                
+                node.value = inorder_successor.value 
+                delete(inorder_successor.value)
+                return node
             end
         elsif value > node.value
             node.right_child = delete(value, node.right_child)
@@ -95,7 +97,7 @@ class Tree
     end
 
     def find_successor(node)
-        return node if node.left_child.nil? && node.right_child.nil?
+        return node if node.left_child.nil? 
         find_successor(node.left_child)
     end
 
