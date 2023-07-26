@@ -1,3 +1,12 @@
+#compare leaf with root
+#if bigger compare with right child
+# if no right child -> leaf = right child
+# else compare leaf with right child
+#if smaller compare with left child
+# if no left child -> leaf = left child
+# recursion
+# if children.nil child = leaf
+
 
 class Node 
 
@@ -17,7 +26,6 @@ class Tree
     def initialize(array) 
         @array = array.sort!.uniq!
         @root_node = build_tree(array)
-        print_tree(@root_node)
     end
 
 
@@ -37,7 +45,7 @@ class Tree
         return root_node
     end
 
-    def print_tree(node)
+    def print_tree(node = root_node)
         return if node.nil?
 
         puts node.value
@@ -46,7 +54,30 @@ class Tree
              
     end
 
+    def insert(value,node = root_node)
+
+        if value == node.value 
+            return 
+        elsif value > node.value 
+            if node.right_child.nil?
+                node.right_child = Node.new(value)
+            else 
+                insert(value,node.right_child)
+            end 
+        elsif value < node.value 
+            if node.left_child.nil?
+                node.left_child = Node.new(value)
+            else 
+                insert(value,node.left_child)
+            end 
+        end
+    end
+
+    def delete
+
 
 end
 
 tree = Tree.new([1,3,5,4,6,7])
+tree.insert(2)
+tree.print_tree
