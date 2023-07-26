@@ -83,7 +83,7 @@ class Tree
                 node = node.left_child
                 return node
             else 
-                inorder_successor = find_successor(node.right_child)
+                inorder_successor = find_successor(node.right_child) # both children present
                 
             end
         elsif value > node.value
