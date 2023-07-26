@@ -74,7 +74,8 @@ class Tree
             puts 'value not found'
         elsif value == node.value
             if node.left_child.nil? && node.right_child.nil? 
-                
+                node = nil
+                return node
             elsif node.left_child.nil? 
                 node = node.right_child
                 return node
@@ -89,12 +90,12 @@ class Tree
         elsif value < node.value
             node.left_child = delete(value, node.left_child)
         end
-        return root_node
+        return node
     end
 
 end
 
 tree = Tree.new([1,3,5,4,6,7])
 tree.insert(2)
-tree.delete(1)
+tree.delete(3)
 tree.print_tree
