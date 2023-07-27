@@ -119,10 +119,11 @@ class Tree
 
         while !array.empty?
             current_node = array[0]
+            yield(current_node)
 
     end
 
-    level_order { |node| node.value += 1}
+    level_order { |current_node| current_node.value += 1}
        
 
 end
