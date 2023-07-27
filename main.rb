@@ -101,8 +101,24 @@ class Tree
         find_successor(node.left_child)
     end
 
+    def find(value, node = root_node)
+        if node.nil?
+            puts 'value not found'
+            return
+        end
+
+        if value == node.value
+            puts "#{node}, #{node.value}"
+        elsif value > node.value
+            find(value, node.right_child)
+        else 
+            find(value, node.left_child)
+        end 
+    end 
+       
+
 end
 
 tree = Tree.new([1,3,5,4,6,7])
-tree.delete(4)
-tree.print_tree
+tree.find(10)
+
