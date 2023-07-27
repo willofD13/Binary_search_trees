@@ -116,9 +116,8 @@ class Tree
     def level_order(node = root_node)
         array = []
         array.push(node)
-        node = yield(node)
-        array.shift
-        array.push(node.left_child,node.right_child)
+
+        while !array.empty?
 
     end
 
