@@ -118,20 +118,29 @@ class Tree
         end 
     end 
 
-    def level_order(node = root_node)
-        array = []
-        array.push(node)
+    #def level_order(node = root_node)
+    #    array = []
+    #   array.push(node)
+    #
+    #   while !array.empty?
+    #        current_node = array[0]
+    #        current_node.value += 1
 
-        while !array.empty?
-            current_node = array[0]
-            current_node.value += 1
+    #       array.push(current_node.left_child) if !current_node.left_child.nil?
+    #        array.push(current_node.right_child) if !current_node.right_child.nil?
 
-            array.push(current_node.left_child) if !current_node.left_child.nil?
-            array.push(current_node.right_child) if !current_node.right_child.nil?
+    #        array.shift 
+    #    end
 
-            array.shift 
-        end
+    #end
 
+    def level_order(node = root_node, array = [root_node])
+        return if array.empty?
+        node.value += 1 
+        array << node.left_child if !node.left_child.nil?
+        array << node.right_child if !node.right_child.nil? 
+        array.shift
+        level_order(array[0], array)
     end
 
     def pretty_print(node = @root_node, prefix = '', is_left = true)
