@@ -118,7 +118,7 @@ class Tree
         array.push(node)
         node = yield(node)
         array.shift
-        
+        array.push(node.left_child,node.right_child)
 
     end
 
