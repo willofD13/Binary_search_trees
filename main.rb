@@ -1,3 +1,4 @@
+require 'pry-byebug'
 class Node 
 
     attr_accessor :value, :left_child, :right_child
@@ -103,6 +104,7 @@ class Tree
 
         if value == node.value
             puts "#{node}, #{node.value}"
+            return node
         elsif value > node.value
             find(value, node.right_child)
         else 
@@ -165,12 +167,21 @@ class Tree
         postorder_traversal(node.right_child)
         puts " #{node.value}"
     end
-       
+
+    def height(value,node = root_node,number = 0)
+        node_to_find = find(value)
+        
+    end 
 
 end
 
 tree = Tree.new([1,3,5,4,6,7])
-tree.postorder_traversal
+tree.insert(2)
+tree.insert(10)
+tree.insert(9)
+tree.insert(8)
+tree.pretty_print
+tree.height(4)
 
 
 
