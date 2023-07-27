@@ -124,6 +124,9 @@ class Tree
             array.push(current_node.left_child) if !current_node.left_child.nil?
             array.push(current_node.right_child) if !current_node.right_child.nil?
 
+            array.shift 
+        end
+
     end
 
     level_order { |current_node| current_node.value += 1}
