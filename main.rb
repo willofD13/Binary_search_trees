@@ -1,11 +1,3 @@
-# we have an array as a queue
-# enqueue root node
-# store first element in a var
-# yield node 
-# push node children 
-# shift node
-# recursion with array[0]
-
 class Node 
 
     attr_accessor :value, :left_child, :right_child
@@ -148,12 +140,20 @@ class Tree
         puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.value}"
         pretty_print(node.left_child, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left_child
     end
+
+    def preorder_traversal(node = root_node)
+
+        return if node.nil?
+        puts "#{node.value}"
+        preorder_traversal(node.left_child)
+        preorder_traversal(node.right_child)
+    end
        
 
 end
 
 tree = Tree.new([1,3,5,4,6,7])
-tree.level_order 
+tree.preorder_traversal
 
-tree.pretty_print
+
 
