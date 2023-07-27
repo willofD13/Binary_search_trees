@@ -157,12 +157,20 @@ class Tree
         inorder_traversal(node.right_child)
 
     end
+
+    def postorder_traversal(node = root_node)
+        return if node.nil? 
+
+        postorder_traversal(node.left_child)
+        postorder_traversal(node.right_child)
+        puts " #{node.value}"
+    end
        
 
 end
 
 tree = Tree.new([1,3,5,4,6,7])
-tree.inorder_traversal
+tree.postorder_traversal
 
 
 
