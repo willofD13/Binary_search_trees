@@ -1,5 +1,10 @@
 # we have an array as a queue
-# discover a node, enqueue it, prin it, enqueue its children
+# enqueue root node
+# store first element in a var
+# yield node 
+# push node children 
+# shift node
+# recursion with array[0]
 
 class Node 
 
@@ -129,12 +134,17 @@ class Tree
 
     end
 
-    
+    def pretty_print(node = @root_node, prefix = '', is_left = true)
+        pretty_print(node.right_child, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right_child
+        puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.value}"
+        pretty_print(node.left_child, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left_child
+    end
        
 
 end
 
 tree = Tree.new([1,3,5,4,6,7])
 tree.level_order 
-tree.print_tree
+
+tree.pretty_print
 
