@@ -148,12 +148,21 @@ class Tree
         preorder_traversal(node.left_child)
         preorder_traversal(node.right_child)
     end
+
+    def inorder_traversal (node = root_node)
+        return if node.nil? 
+
+        inorder_traversal(node.left_child)
+        puts "#{node.value}"
+        inorder_traversal(node.right_child)
+
+    end
        
 
 end
 
 tree = Tree.new([1,3,5,4,6,7])
-tree.preorder_traversal
+tree.inorder_traversal
 
 
 
