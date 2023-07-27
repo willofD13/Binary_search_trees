@@ -118,6 +118,7 @@ class Tree
         array.push(node)
 
         while !array.empty?
+            current_node = array[0]
 
     end
 
