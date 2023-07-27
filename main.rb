@@ -115,7 +115,12 @@ class Tree
 
     def level_order(node = root_node)
         array = []
+        array.push(node)
+        node = yield(node)
 
+    end
+
+    level_order { |node| node.value += 1}
        
 
 end
