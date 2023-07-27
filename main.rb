@@ -119,7 +119,7 @@ class Tree
 
         while !array.empty?
             current_node = array[0]
-            yield(current_node)
+            current_node.value += 1
 
             array.push(current_node.left_child) if !current_node.left_child.nil?
             array.push(current_node.right_child) if !current_node.right_child.nil?
@@ -129,11 +129,12 @@ class Tree
 
     end
 
-    level_order { |current_node| current_node.value += 1}
+    
        
 
 end
 
 tree = Tree.new([1,3,5,4,6,7])
-tree.find(10)
+tree.level_order 
+tree.print_tree
 
