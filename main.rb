@@ -1,8 +1,5 @@
-# compare value with node value 
-# if node has no children(leaf node) remove the node 
-# if node has one child, copy the child in the node 
-# 
-
+# we have an array as a queue
+# discover a node, enqueue it, prin it, enqueue its children
 
 class Node 
 
@@ -115,6 +112,10 @@ class Tree
             find(value, node.left_child)
         end 
     end 
+
+    def level_order(node = root_node)
+        array = []
+
        
 
 end
