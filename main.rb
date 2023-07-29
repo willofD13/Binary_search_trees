@@ -184,7 +184,9 @@ class Tree
 
         left_depth = depth(value, node.left_child) if value < node.value
         right_depth = depth(value, node.right_child) if value > node.value
-        
+
+        return left_depth if right_depth.nil?
+        return right_depth if left_depth.nil?
 end
 
 tree = Tree.new([1,3,5,4,6,7])
