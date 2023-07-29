@@ -189,22 +189,23 @@ class Tree
         return right_depth if left_depth.nil?
     end
 
-    def height(node = root_node)
+    def balanced?(node = root_node)
         return -1 if node.nil?
 
         left_height = height(node.left_child) + 1
         right_height = height(node.right_child) + 1
+        height_difference = left_height - right_height
 
-        return left_height - right_height
-    end 
-
-    def balanced 
-        return height_difference = left_height - right_height
+        return true if height_difference >= -1 && height_difference <= 1
+        return false if height_difference > 1 || height_difference < -1 
+    end
+        
 
 end
 
 tree = Tree.new([1,2,3,4,5,6,7,8])
 tree.pretty_print
+tree.balanced?
 
 
 
