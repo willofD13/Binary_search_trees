@@ -176,6 +176,7 @@ class Tree
 
         return left_height if left_height > right_height        
         return right_height if right_height > left_height
+        return left_height if left_height == right_height
     end 
 
 end
