@@ -169,6 +169,7 @@ class Tree
     end
 
     def height(node = root_node)
+        return -1 if node.nil?
     
         
     end 
