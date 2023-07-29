@@ -182,7 +182,9 @@ class Tree
     def depth(value, node = root_node)
         return 0 if value == node.value 
 
-
+        left_depth = depth(value, node.left_child) if value < node.value
+        right_depth = depth(value, node.right_child) if value > node.value
+        
 end
 
 tree = Tree.new([1,3,5,4,6,7])
