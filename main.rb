@@ -168,8 +168,8 @@ class Tree
         puts " #{node.value}"
     end
 
-    def height(value,node = root_node,number = 0)
-        node_to_find = find(value)
+    def height(node = root_node)
+    
         
     end 
 
