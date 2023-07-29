@@ -179,6 +179,10 @@ class Tree
         return left_height if left_height == right_height
     end 
 
+    def depth(value, node = root_node)
+        return 0 if value == node.value 
+
+
 end
 
 tree = Tree.new([1,3,5,4,6,7])
@@ -187,7 +191,6 @@ tree.insert(10)
 tree.insert(9)
 tree.insert(8)
 tree.pretty_print
-tree.height(4)
 
 
 
