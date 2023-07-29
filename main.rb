@@ -197,14 +197,19 @@ class Tree
         height_difference = left_height - right_height
 
         return true if height_difference >= -1 && height_difference <= 1
-        return false if height_difference > 1 || height_difference < -1 
+        if height_difference > 1 || height_difference < -1
+            puts 'tree not balanced'
+            return
+        end
     end
         
 
 end
 
 tree = Tree.new([1,2,3,4,5,6,7,8])
+tree.insert(10)
 tree.pretty_print
+
 tree.balanced?
 
 
