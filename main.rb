@@ -174,9 +174,8 @@ class Tree
         left_height = height(node.left_child) + 1
         right_height = height(node.right_child) + 1
 
-        
-    
-        
+        return left_height if left_height > right_height        
+        return right_height if right_height > left_height
     end 
 
 end
