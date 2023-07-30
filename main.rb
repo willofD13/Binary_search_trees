@@ -220,4 +220,6 @@ end
 tree = Tree.new(Array.new(15) { rand(1..100) })
 tree.balanced?
 tree.pretty_print
-
+tree.inorder_traversal
+tree.preorder_traversal
+tree.postorder_traversal
