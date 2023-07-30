@@ -228,3 +228,4 @@ tree.insert(150)
 tree.insert(185)
 tree.insert(201)
 tree.pretty_print
+tree.balanced?
