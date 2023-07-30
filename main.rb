@@ -213,7 +213,9 @@ end
 
 tree = Tree.new([1,2,3,4,5,6,7,8])
 tree.insert(10)
-
+new_data = tree.rebalance
+balanced_tree = Tree.new(new_data)
+balanced_tree.pretty_print
 
 
 
