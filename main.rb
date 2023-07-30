@@ -154,9 +154,9 @@ class Tree
     def inorder_traversal (node = root_node, array = [])
         return if node.nil? 
 
-        inorder_traversal(node.left_child)
+        inorder_traversal(node.left_child,array)
         array << node.value
-        inorder_traversal(node.right_child)
+        inorder_traversal(node.right_child,array)
 
         return array
     end
