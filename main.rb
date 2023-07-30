@@ -206,15 +206,13 @@ class Tree
 
     def rebalance
         new_array = inorder_traversal
-        
-        build_tree(new_array)
     end
 end
 
 tree = Tree.new([1,2,3,4,5,6,7,8])
 tree.insert(10)
-new_data = tree.rebalance
-balanced_tree = Tree.new(new_data)
+new_array = tree.rebalance
+balanced_tree = Tree.new(new_array)
 balanced_tree.pretty_print
 
 
