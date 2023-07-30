@@ -204,10 +204,11 @@ class Tree
         end
     end
 
-    def rebalance(node = root_node)
+    def rebalance
         new_array = inorder_traversal
         
-
+        build_tree(new_array)
+    end
 end
 
 tree = Tree.new([1,2,3,4,5,6,7,8])
