@@ -155,10 +155,8 @@ class Tree
         return if node.nil? 
 
         inorder_traversal(node.left_child,array)
-        array << node.value
+        puts "#{node.value}"
         inorder_traversal(node.right_child,array)
-
-        return array
     end
 
     def postorder_traversal(node = root_node)
@@ -207,13 +205,19 @@ class Tree
     def rebalance
         new_array = inorder_traversal
     end
+
+    def inorder_array (node = root_node, array = [])
+        return if node.nil? 
+
+        inorder_array(node.left_child,array)
+        array << node.value
+        inorder_array(node.right_child,array)
+
+        return array
+    end
 end
 
-tree = Tree.new([1,2,3,4,5,6,7,8])
-tree.insert(10)
-new_array = tree.rebalance
-balanced_tree = Tree.new(new_array)
-balanced_tree.pretty_print
-
-
+tree = Tree.new(Array.new(15) { rand(1..100) })
+tree.balanced?
+tree.pretty_print
 
