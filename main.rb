@@ -203,7 +203,7 @@ class Tree
     end
 
     def rebalance
-        new_array = inorder_traversal
+        new_array = inorder_array
     end
 
     def inorder_array (node = root_node, array = [])
