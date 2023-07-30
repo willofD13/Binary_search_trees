@@ -151,13 +151,14 @@ class Tree
         preorder_traversal(node.right_child)
     end
 
-    def inorder_traversal (node = root_node)
+    def inorder_traversal (node = root_node, array = [])
         return if node.nil? 
 
         inorder_traversal(node.left_child)
-        puts "#{node.value}"
+        array << node.value
         inorder_traversal(node.right_child)
 
+        return array
     end
 
     def postorder_traversal(node = root_node)
@@ -202,15 +203,16 @@ class Tree
             return
         end
     end
+
+    def rebalance(node = root_node)
+        new_array = inorder_traversal
         
 
 end
 
 tree = Tree.new([1,2,3,4,5,6,7,8])
 tree.insert(10)
-tree.pretty_print
 
-tree.balanced?
 
 
 
