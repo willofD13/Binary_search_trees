@@ -111,7 +111,7 @@ class Tree
         end 
     end 
 
-    #def level_order(node = root_node)
+    #def level_order(node = root_node) #traverse the tree through iteration
     #    array = []
     #   array.push(node)
     #
@@ -127,7 +127,7 @@ class Tree
 
     #end
 
-    def level_order(node = root_node, array = [root_node])
+    def level_order(node = root_node, array = [root_node]) #traverse the tree with recursion
         return if array.empty?
         node.value += 1 
         array << node.left_child if !node.left_child.nil?
