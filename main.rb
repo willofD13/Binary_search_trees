@@ -21,7 +21,6 @@ class Tree
 
 
     def build_tree(array)
-        array.sort!.uniq!
         start = 0
         last = array.length - 1
 
