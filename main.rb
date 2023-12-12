@@ -180,13 +180,16 @@ class Tree
     end 
 
     def depth(value, node = root_node)
-        return 0 if value == node.value 
 
-        left_depth = depth(value, node.left_child) if value < node.value
-        right_depth = depth(value, node.right_child) if value > node.value
+        if value == node.value
+            return 0
+        elsif value > node.value
+            node_depth = depth(value,node.right_child) + 1
+        elsif value < node.value
+            node_depth = depth(value,node.left_child) + 1
+        end
 
-        return left_depth if right_depth.nil?
-        return right_depth if left_depth.nil?
+        return node_depth
     end
 
     def balanced?(node = root_node)
@@ -218,15 +221,16 @@ class Tree
     end
 end
 
-tree = Tree.new(Array.new(15) { rand(1..100) })
-#tree.balanced?
+#tree = Tree.new(Array.new(15) { rand(1..100) })
+tree = Tree.new([1,2,3,4,5,6,7,8,9,10])
 tree.pretty_print
+puts tree.depth(10)
 #tree.insert(105)
 #tree.insert(150)
 #tree.insert(185)
 #tree.insert(201)
 #tree.pretty_print
-tree.balanced?
+#tree.balanced?
 #new_array = tree.rebalance
 #new_tree = Tree.new(new_array)
 #new_tree.pretty_print
