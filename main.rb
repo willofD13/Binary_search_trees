@@ -172,9 +172,11 @@ class Tree
         left_height = height(node.left_child) + 1
         right_height = height(node.right_child) + 1
 
-        return left_height if left_height > right_height        
-        return right_height if right_height > left_height
-        return left_height if left_height == right_height
+        if right_height > left_height
+            return right_height
+        else
+            return left_height
+        end
     end 
 
     def depth(value, node = root_node)
@@ -224,7 +226,7 @@ tree.pretty_print
 #tree.insert(185)
 #tree.insert(201)
 #tree.pretty_print
-#tree.balanced?
+tree.balanced?
 #new_array = tree.rebalance
 #new_tree = Tree.new(new_array)
 #new_tree.pretty_print
