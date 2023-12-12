@@ -194,10 +194,10 @@ class Tree
         right_height = height(node.right_child) + 1
         height_difference = left_height - right_height
 
-        return true if height_difference >= -1 && height_difference <= 1
-        if height_difference > 1 || height_difference < -1
+        if height_difference >= -1 && height_difference <= 1
+            puts "balanced tree" 
+        elsif height_difference > 1 || height_difference < -1
             puts 'tree not balanced'
-            return
         end
     end
 
@@ -217,18 +217,18 @@ class Tree
 end
 
 tree = Tree.new(Array.new(15) { rand(1..100) })
-tree.balanced?
+#tree.balanced?
 tree.pretty_print
-tree.insert(105)
-tree.insert(150)
-tree.insert(185)
-tree.insert(201)
-tree.pretty_print
-tree.balanced?
-new_array = tree.rebalance
-new_tree = Tree.new(new_array)
-new_tree.pretty_print
-tree.balanced?
-tree.inorder_traversal
-tree.preorder_traversal
-tree.postorder_traversal
+#tree.insert(105)
+#tree.insert(150)
+#tree.insert(185)
+#tree.insert(201)
+#tree.pretty_print
+#tree.balanced?
+#new_array = tree.rebalance
+#new_tree = Tree.new(new_array)
+#new_tree.pretty_print
+#tree.balanced?
+#tree.inorder_traversal
+#tree.preorder_traversal
+#tree.postorder_traversal
